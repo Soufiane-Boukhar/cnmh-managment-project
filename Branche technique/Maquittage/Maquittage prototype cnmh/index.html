@@ -94,10 +94,21 @@
               >Ajouter un projet</a
             >
           </li>
-          <form action="" method="post">
-            <button type="submit" class="btn btn-danger">Deconnecter</button>
-          </form>
+
+         
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Language
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Francais</a></li>
+              <li><a class="dropdown-item" href="#">Anglais</a></li>
+            </ul>
+          </div>
+
         </ul>
+           
       </nav>
 
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -162,6 +173,9 @@
                       <p>Edit</p>
                     </a>
                   </li>
+                  <form action="" method="post">
+                    <button type="submit" class="btn btn-danger">Deconnecter</button>
+                  </form>
                 </ul>
               </li>
 
@@ -334,11 +348,28 @@
             document.getElementById("importForm").submit();
           }
         });
+
+        const dropdownElement = document.querySelector('.dropdown');
+const dropdownToggleElement = dropdownElement.querySelector('.dropdown-toggle');
+const dropdownMenuElement = dropdownElement.querySelector('.dropdown-menu');
+
+dropdownToggleElement.addEventListener('click', (event) => {
+  event.stopPropagation();
+  dropdownMenuElement.classList.toggle('show');
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.dropdown')) {
+    dropdownMenuElement.classList.remove('show');
+  }
+});
+
     </script>
     <style>
         table tr td{
             text-align: center;
         }
     </style>
+    
   </body>
 </html>

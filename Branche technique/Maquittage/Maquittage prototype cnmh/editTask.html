@@ -180,87 +180,51 @@
 
       <div class="content-wrapper">
         <section class="content">
-            <div class="p-4">
-                <h2>Liste des Taches</h2>
-            </div>
-         
-          <div class="ml-4 mb-4 mt-4 d-flex justify-content-end">
-            <div class="form-group">
-              <select class="custom-select">
-                <option value="" selected>Choisir le titre</option>
-                <option value="{{ $projet->nom }}"></option>
-              </select>
-            </div>
-            <div class="input-group w-50 ml-5">
-              <input
-                type="text"
-                id="searchInput"
-                class="form-control"
-                placeholder="Rechercher"
-              />
-            </div>
-          </div>
-
-          <div class="container">
-            <table id="example2" class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>Titre de task</th>
-                  <th>Description de task</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="tableBodyTask">
-                <tr>
-                  <td>Rapport</td>
-                  <td>Rediger le rapport de cnmh</td>
-                  <td>
-                    <form action="editTask.html" method="post">
-                      <button type="submit" class="btn btn-success">
-                        Editer
-                      </button>
+            <div class="container">
+                <div class="mt-4">
+                    <form method="post" action="">
+                        <input type="hidden" name="id_projet" value="{{ $tasks->id_projet }}">
+                        <div class="form-group">
+                            <label for="name">Titre</label>
+                            <input type="text" id="titre" class="form-control" name="titre" value="Rapport">
+                        </div>
+                        <div class="form-group">
+                            <label for="mytextarea">Description</label>
+                            <textarea id="mytextarea" name="description">Rediger le rapport de cnmh</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-4">Editer</button>
+                        <button type="button" class="btn btn-danger ml-4 mb-4" data-toggle="modal" data-target="#task">
+                            Supprimer
+                        </button>
                     </form>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div
-              class="d-flex justify-content-center"
-              id="pagination-links"
-            ></div>
-            <div class="d-flex justify-content-between p-4">
-              <div class="d-flex">
-                <form action="" method="post">
-                  <button type="submit" class="btn btn-success">
-                    Exporter
-                  </button>
-                </form>
-
-                <form
-                  class="ml-4"
-                  action=""
-                  method="post"
-                  id="importForm"
-                  enctype="multipart/form-data"
-                >
-                  <input
-                    type="file"
-                    id="fileInputImporter"
-                    name="file"
-                    style="display: none"
-                  />
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    id="chooseFileButtonImporter"
-                  >
-                    Importer
-                  </button>
-                </form>
-              </div>
+                </div>
+            
             </div>
-          </div>
+            
+            <div class="modal fade" id="task">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Task</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form method="post" action="">
+                            
+                            <input type="hidden" name="id_projet" value="{{ $tasks->id_projet }}">
+            
+                            <div class="modal-body">
+                               <p>Voulez-vous vraiment supprimer ce task ?</p>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
+                                <button type="submit" class="btn btn-primary">Oui</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
       </div>
       <footer class="main-footer">

@@ -90,7 +90,7 @@
           </li>
 
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="createProjet.html" class="nav-link text-light">Ajouter un projet</a>
+            <a href="" class="nav-link text-light">Ajouter un projet</a>
           </li>
         </ul>
       </nav>
@@ -180,87 +180,33 @@
 
       <div class="content-wrapper">
         <section class="content">
-            <div class="p-4">
-                <h2>Liste des Taches</h2>
-            </div>
-         
-          <div class="ml-4 mb-4 mt-4 d-flex justify-content-end">
-            <div class="form-group">
-              <select class="custom-select">
-                <option value="" selected>Choisir le titre</option>
-                <option value="{{ $projet->nom }}"></option>
-              </select>
-            </div>
-            <div class="input-group w-50 ml-5">
-              <input
-                type="text"
-                id="searchInput"
-                class="form-control"
-                placeholder="Rechercher"
-              />
-            </div>
-          </div>
-
-          <div class="container">
-            <table id="example2" class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>Titre de task</th>
-                  <th>Description de task</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="tableBodyTask">
-                <tr>
-                  <td>Rapport</td>
-                  <td>Rediger le rapport de cnmh</td>
-                  <td>
-                    <form action="editTask.html" method="post">
-                      <button type="submit" class="btn btn-success">
-                        Editer
-                      </button>
+            <div class="container">
+                <div class="mt-4">
+                    <form method="post" action="">
+                       
+                        <input type="hidden" name="id_user" value="">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="nom" class="form-control" name="nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="mytextarea">Description</label>
+                            <textarea id="mytextarea" name="description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateDebut">Date de debut</label>
+                            <input type="date" id="dateDebut" class="form-control" name="date_debut">
+                        </div>
+                        <div class="form-group">
+                            <label for="dateFin">Date de fin</label>
+                            <input type="date" id="dateFin" class="form-control" name="date_fin">
+                        </div>
+            
+                        <button type="submit" class="btn btn-primary mb-4">Ajouter</button>
                     </form>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div
-              class="d-flex justify-content-center"
-              id="pagination-links"
-            ></div>
-            <div class="d-flex justify-content-between p-4">
-              <div class="d-flex">
-                <form action="" method="post">
-                  <button type="submit" class="btn btn-success">
-                    Exporter
-                  </button>
-                </form>
-
-                <form
-                  class="ml-4"
-                  action=""
-                  method="post"
-                  id="importForm"
-                  enctype="multipart/form-data"
-                >
-                  <input
-                    type="file"
-                    id="fileInputImporter"
-                    name="file"
-                    style="display: none"
-                  />
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    id="chooseFileButtonImporter"
-                  >
-                    Importer
-                  </button>
-                </form>
-              </div>
+                </div>
+            
             </div>
-          </div>
         </section>
       </div>
       <footer class="main-footer">

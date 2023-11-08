@@ -56,13 +56,7 @@
                     <button type="submit" class="btn btn-danger">Deconnecter</button>
                 </form>
                 
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('show.login') }}" class="nav-link text-light">
-                        <p>
-                        Se connecter
-                        </p>
-                    </a>
-                </li>
+               
         
             </ul>
         
@@ -71,7 +65,7 @@
         
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <a href="index3.html" class="brand-link">
-                <img src="{{asset('adminlte/dist/img/logo.avif')}}" alt="AdminLTE Logo"
+                <img src="adminlte/dist/img/logo.avif" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Projets</span>
             </a>
@@ -79,7 +73,7 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{asset('adminlte/dist/img/user.png')}}" class="img-circle elevation-2" alt="User Image">
+                        <img src="adminlte/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block nameStyle"><span>Boukhar</span>Soufiane</a>
@@ -89,7 +83,7 @@
         
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{asset('adminlte/dist/img/visiteur.png')}}" class="img-circle elevation-2" alt="User Image">
+                        <img src="adminlte/dist/img/visiteur.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block nameStyle">Visiteur</a>
@@ -110,7 +104,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('profile' , Auth::user()->id) }}" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="nav-icon far fa-edit"></i>
                                         <p>
                                             Edit
@@ -138,7 +132,85 @@
         
         <div class="content-wrapper">
             <section class="content">
-                @yield('content')
+                <div class="d-flex justify-content-between p-4">
+                    <h2>Liste des projets</h2>
+                
+                    <div class="d-flex">
+                        <form action="" method="post">
+                           
+                            <button type="submit" class="btn btn-success">Exporter</button>
+                        </form>
+                
+                        <form class="ml-4" action="" method="post" id="importForm"
+                            enctype="multipart/form-data">
+                           
+                            
+                            <input type="file" id="fileInputImporter" name="file" style="display: none;">
+                            <button type="button" class="btn btn-primary" id="chooseFileButtonImporter">Importer</button>
+                        </form>
+                
+                    </div>
+                </div>
+               
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Rechercher">
+                </div>
+                <div class="ml-4 mb-4 mt-4 d-flex">
+                    <div class="form-group">
+                        <label>Filtre</label>
+                        <div class="d-flex">
+                        <select class="custom-select">
+                            <option value="" selected>Choisir le nom</option>
+                            <option value=""></option>
+                        </select>
+                        <select class="custom-select ml-5">
+                            <option value="" selected>Sort</option>
+                            <option value="ancienne">Ancienne date</option>
+                            <option value="derniere">Derniere date</option>
+                
+                        </select>
+                        </div>
+                       
+                    </div>
+                
+                </div>
+                <div class="container">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nom de projet</th>
+                                <th>Description</th>
+                                <th>Date de debut</th>
+                                <th>Date de fin</th>
+                                <th>Task de projet</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                           
+                            <tr>
+                                <td>Projet de cnmh</td>
+                                <td>Devlopper application de gestion centre cnmh</td>
+                                <td>2023-10-12</td>
+                                <td>2023-10-16</td>
+                                <td>
+                                    <a href="" class="nav-link">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form action="" method="post">
+                                        <button type="submit" class="btn btn-success">Editer</button>
+                                    </form>
+                                </td>
+                            </tr>
+                         
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center" id="pagination-links">
+                        
+                    </div>
+                </div>
             </section>
         </div>
         <footer class="main-footer">

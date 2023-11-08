@@ -32,19 +32,30 @@
         @endif
     </div>
 </div>
-<div class="ml-4 mb-4 mt-4">
-    <label>Filtre</label>
-    <div class="form-group d-flex">
+<div class="input-group ml-4">
+    <input type="text" id="searchInput" class="form-control" placeholder="Rechercher">
+</div>
+<div class="ml-4 mb-4 mt-4 d-flex">
+    <div class="form-group">
+        <label>Filtre</label>
+        <div class="d-flex">
         <select class="custom-select">
             <option value="" selected>Choisir le nom</option>
             @foreach($projets as $projet)
-              <option value="{{ $projet->nom }}">{{ $projet->nom }}</option>
+            <option value="{{ $projet->nom }}">{{ $projet->nom }}</option>
             @endforeach
         </select>
-        <input type="text" id="searchInput" class="form-control ml-4" placeholder="Rechercher">
-    </div>
-</div>
+        <select class="custom-select ml-5">
+            <option value="" selected>Sort</option>
+            <option value="ancienne">Ancienne date</option>
+            <option value="derniere">Derniere date</option>
 
+        </select>
+        </div>
+       
+    </div>
+
+</div>
 <div class="container">
     <table id="example2" class="table table-bordered table-hover">
         <thead>

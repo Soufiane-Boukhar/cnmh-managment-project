@@ -32,7 +32,7 @@
         @endif
     </div>
 </div>
-<div class="input-group ml-4">
+<div class="input-group">
     <input type="text" id="searchInput" class="form-control" placeholder="Rechercher">
 </div>
 <div class="ml-4 mb-4 mt-4 d-flex">
@@ -60,7 +60,6 @@
     <table id="example2" class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Responsable de projet</th>
                 <th>Nom de projet</th>
                 <th>Description</th>
                 <th>Date de debut</th>
@@ -77,7 +76,6 @@
             @else
             @foreach($projets as $projet)
             <tr>
-                <td>{{$projet->nom_user}} <span> {{$projet->prenom}}</span></td>
                 <td>{{$projet->nom}}</td>
                 <td>{!! $projet->description !!}</td>
                 <td>{{$projet->date_debut}}</td>
@@ -130,7 +128,6 @@ $(document).ready(function() {
 
                     var rowHtml = `
                         <tr>
-                            <td>${projet.nom_user} <span> ${projet.prenom}</span></td>
                             <td>${projet.nom}</td>
                             <td>${projet.description}</td>
                             <td>${projet.date_debut}</td>

@@ -133,7 +133,7 @@
         <div class="content-wrapper">
             <section class="content">
                 <div class="d-flex justify-content-between p-4">
-                    <h2>Liste des projets</h2>
+                    <h2>Liste des Taches</h2>
                 
                     <div class="d-flex">
                         <form action="" method="post">
@@ -158,18 +158,11 @@
                 <div class="ml-4 mb-4 mt-4 d-flex">
                     <div class="form-group">
                         <label>Filtre</label>
-                        <div class="d-flex">
                         <select class="custom-select">
-                            <option value="" selected>Choisir le nom</option>
+                            <option value="" selected>Choisir le titre</option>
                             <option value=""></option>
                         </select>
-                        <select class="custom-select ml-5">
-                            <option value="" selected>Sort</option>
-                            <option value="ancienne">Ancienne date</option>
-                            <option value="derniere">Derniere date</option>
-                
-                        </select>
-                        </div>
+                        
                        
                     </div>
                 
@@ -178,35 +171,27 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>Nom de projet</th>
-                                <th>Description</th>
-                                <th>Date de debut</th>
-                                <th>Date de fin</th>
-                                <th>Taches de projet</th>
+                                <th>Titre de task</th>
+                                <th>Description de task</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody id="tableBody">
-                           
+                        <tbody id="tableBodyTask">
+                
                             <tr>
-                                <td>Projet de cnmh</td>
-                                <td>Devlopper application de gestion centre cnmh</td>
-                                <td>2023-10-12</td>
-                                <td>2023-10-16</td>
+                                <td>Rapport</td>
+                                <td>Rediger le rapport de cnmh</td>
                                 <td>
-                                    <a href="task.html" class="nav-link">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <form action="editeProjet.html" method="post">
+                                    <form action="" method="post">
+                                     
                                         <button type="submit" class="btn btn-success">Editer</button>
                                     </form>
                                 </td>
                             </tr>
-                         
+                
                         </tbody>
                     </table>
+                
                     <div class="d-flex justify-content-center" id="pagination-links">
                         
                     </div>

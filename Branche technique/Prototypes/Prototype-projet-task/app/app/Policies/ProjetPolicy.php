@@ -29,7 +29,7 @@ class ProjetPolicy
      */
     public function create(User $user , Projet $projet): bool
     {
-        return $user->id === $projet->id_user;
+        return auth()->check();
     }
 
     /**

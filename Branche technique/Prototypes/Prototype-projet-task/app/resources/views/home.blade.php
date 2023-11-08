@@ -21,7 +21,6 @@
         </form>
 
         @endif
-
     </div>
 </div>
 <div class="container">
@@ -34,14 +33,18 @@
     </div>
 </div>
 <div class="ml-4 mb-4 mt-4">
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-        </div>
-        <input type="text" id="searchInput" class="form-control" data-inputmask-alias="datetime"
-            data-inputmask-inputformat="mm/dd/yyyy" data-mask>
+    <label>Filtre</label>
+    <div class="form-group d-flex">
+        <select class="custom-select">
+            <option value="" selected>Choisir le nom</option>
+            @foreach($projets as $projet)
+              <option value="{{ $projet->nom }}">{{ $projet->nom }}</option>
+            @endforeach
+        </select>
+        <input type="text" id="searchInput" class="form-control ml-4" placeholder="Rechercher">
     </div>
 </div>
+
 <div class="container">
     <table id="example2" class="table table-bordered table-hover">
         <thead>
@@ -93,8 +96,8 @@
 </div>
 
 <script>
-$(document).ready(function () {
-    $('#searchInput').on('keyup', function () {
+$(document).ready(function() {
+    $('#searchInput').on('keyup', function() {
         var searchInput = $('#searchInput').val();
         console.log(searchInput);
 
@@ -105,11 +108,11 @@ $(document).ready(function () {
                 search: searchInput,
                 _token: '{{ csrf_token() }}',
             },
-            success: function (response) {
+            success: function(response) {
                 $('#tableBody').empty();
                 $('#pagination-links').empty();
                 console.log(response.data);
-                response.data.forEach(function (projet) {
+                response.data.forEach(function(projet) {
                     var projetId = projet.id;
 
                     var editLinkHref = editProjetLink(projetId);
@@ -142,7 +145,7 @@ $(document).ready(function () {
                 });
                 $('#pagination-links').append(response.links);
             },
-            error: function (xhr, status, error) {
+            error: function(xhr, status, error) {
                 console.error('AJAX error:', error);
             }
         });

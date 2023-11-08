@@ -12,24 +12,24 @@
             <a class="nav-link text-light" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/" class="nav-link text-light">Acceuil</a>
+            <a href="/" class="nav-link text-light">{{ __('message.home') }}</a>
         </li>
 
         @if(Auth::user())
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('show.create_projet') }}" class="nav-link text-light">Ajouter un projet</a>
+            <a href="{{ route('show.create_projet') }}" class="nav-link text-light">{{ __('message.add') }}</a>
         </li>
         <form action="{{ route('logout') }}" method="post">
             @csrf 
             @method('POST')
-            <button type="submit" class="btn btn-danger">Deconnecter</button>
+            <button type="submit" class="btn btn-danger">{{ __('message.logout') }}</button>
         </form>
         
         @else
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('show.login') }}" class="nav-link text-light">
                 <p>
-                    Se connecter
+                {{ __('message.login') }}
                 </p>
             </a>
         </li>
@@ -44,7 +44,7 @@
     <a href="index3.html" class="brand-link">
         <img src="{{asset('adminlte/dist/img/logo.avif')}}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Projetcs</span>
+        <span class="brand-text font-weight-light">{{ __('message.logo') }}</span>
     </a>
 
     <div class="sidebar">
@@ -101,7 +101,7 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="" class="nav-link">
                         <p>
-                            A propos de nous
+                            {{ __('message.about') }}
                         </p>
                         <i class="fa-solid fa-question"></i>
                     </a>

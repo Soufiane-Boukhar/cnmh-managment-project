@@ -1,0 +1,19 @@
+.step-icons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.step-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer; 
+}
+
+.step-icon i {
+    font-size: 24px;
+}
+
+.step-icon.active i {
+    color: #007bff; 
+}

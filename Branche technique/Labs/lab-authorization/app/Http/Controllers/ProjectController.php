@@ -7,6 +7,9 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Repositories\ProjectRepository;
 use Illuminate\Http\Request;
+use App\Models\Project;
+use Illuminate\Support\Facades\Auth;
+
 use Flash;
 
 class ProjectController extends AppBaseController
@@ -83,12 +86,15 @@ class ProjectController extends AppBaseController
 
         if (empty($project)) {
             Flash::error('Project not found');
-
             return redirect(route('projects.index'));
         }
 
+        // Check if the authenticated user can update the specific project
+        $this->authorize('update', $project);
+
         return view('projects.edit')->with('project', $project);
     }
+
 
     /**
      * Update the specified Project in storage.
@@ -117,13 +123,18 @@ class ProjectController extends AppBaseController
      */
     public function destroy($id)
     {
-        $project = $this->projectRepository->find($id);
 
+
+        $project = $this->projectRepository->find($id);
+    
         if (empty($project)) {
             Flash::error('Project not found');
 
             return redirect(route('projects.index'));
         }
+
+        $this->authorize('delete',$project);
+
 
         $this->projectRepository->delete($id);
 

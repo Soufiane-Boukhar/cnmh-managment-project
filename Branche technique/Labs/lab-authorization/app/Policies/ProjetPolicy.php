@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Project;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ProjetPolicy
@@ -18,7 +19,7 @@ class ProjetPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +31,8 @@ class ProjetPolicy
      */
     public function view(User $user, Project $project)
     {
-        //
+        return true;
+
     }
 
     /**
@@ -41,7 +43,7 @@ class ProjetPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +55,8 @@ class ProjetPolicy
      */
     public function update(User $user, Project $project)
     {
-        //
+        
+        return $user->role === 'admin';
     }
 
     /**
@@ -65,7 +68,7 @@ class ProjetPolicy
      */
     public function delete(User $user, Project $project)
     {
-        //
+        return $user->role === 'user';
     }
 
     /**

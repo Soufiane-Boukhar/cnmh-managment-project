@@ -59,7 +59,7 @@
                     <div class="input-group mb-3">
                         <select name="role" id="role">
                             <option value="admin">Admin</option>
-                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
                         </select>
                     </div>
 

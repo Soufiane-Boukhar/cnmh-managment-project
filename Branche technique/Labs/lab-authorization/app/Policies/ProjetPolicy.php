@@ -7,8 +7,13 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ProjetPolicy
-{
+
+  /**
+     * @author Boukhar soufiane
+     */
+
+class ProjetPolicy{
+
     use HandlesAuthorization;
 
     /**
@@ -68,7 +73,7 @@ class ProjetPolicy
      */
     public function delete(User $user, Project $project)
     {
-        return $user->role === 'user';
+        return $user->role != 'admin';
     }
 
     /**

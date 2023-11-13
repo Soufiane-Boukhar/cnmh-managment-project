@@ -5,13 +5,13 @@
     <h2>Liste des projets</h2>
 
     <div class="d-flex">
-        <form action="{{ route('projet.export') }}" method="post">
+        <form action="" method="post">
             @csrf
             @method('POST')
             <button type="submit" class="btn btn-success">Exporter</button>
         </form>
 
-        <form class="ml-4" action="{{ route('projet.import') }}" method="post" id="importForm"
+        <form class="ml-4" action="" method="post" id="importForm"
             enctype="multipart/form-data">
             @csrf
             @method('POST')

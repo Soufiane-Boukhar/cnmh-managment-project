@@ -1,14 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import "~adminlte/plugins/fontawesome-free/css/all.min.css";
-@import "~adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css";
-@import "~adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css";
-@import "~adminlte/plugins/jqvmap/jqvmap.min.css";
-@import "~adminlte/dist/css/adminlte.min.css";
-@import "~adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css";
-@import "~adminlte/plugins/daterangepicker/daterangepicker.css";
-@import "~adminlte/plugins/summernote/summernote-bs4.min.css";
-@import "~adminlte/dist/css/style.css";
 
-table tr td{
-    text-align: center;
-}
+
+

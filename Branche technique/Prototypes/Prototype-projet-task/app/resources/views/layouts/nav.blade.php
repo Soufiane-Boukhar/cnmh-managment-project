@@ -27,7 +27,7 @@
         
         @else
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('show.login') }}" class="nav-link text-light">
+            <a href="{{ route('login') }}" class="nav-link text-light">
                 <p>
                 {{ __('message.login') }}
                 </p>
@@ -85,7 +85,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('profile' , Auth::user()->id) }}" class="nav-link">
+                            <a href="" class="nav-link">
                                 <i class="nav-icon far fa-edit"></i>
                                 <p>
                                     Edit

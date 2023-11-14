@@ -71,7 +71,7 @@ class ProjetPolicy{
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Project $project)
+    public function destroy(User $user, Project $project)
     {
         return $user->role != 'admin';
     }

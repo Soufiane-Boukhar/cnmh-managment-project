@@ -123,6 +123,9 @@ class ProjectController extends AppBaseController
      */
     public function destroy($id)
     {
+    //    How to get name of requested controller and action in middleware Laravel
+    
+        $this->authorizeCnmh('destroy','Project');
 
 
         $project = $this->projectRepository->find($id);
@@ -133,7 +136,6 @@ class ProjectController extends AppBaseController
             return redirect(route('projects.index'));
         }
 
-        $this->authorize('delete',$project);
 
 
         $this->projectRepository->delete($id);

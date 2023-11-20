@@ -15,6 +15,26 @@ use InfyOm\Generator\Utils\ResponseUtil;
  */
 class AppBaseController extends Controller
 {
+
+    public function callAction($method, $parameters)
+    {
+
+        $controller = class_basename(get_class($this));
+        $action = $method;
+        $model = str_replace('Controller', '', $controller);
+        $modelPath = 'App\\Models\\'.$model;  
+
+        if($action === 'index'){
+            $this->authorize('view', new $modelPath);  
+        }elseif($action === 'store'){  
+            $this->authorize('create', new $modelPath);  
+        }else{ 
+            $this->authorize($action, new $modelPath); 
+        }
+        
+        return parent::callAction($method, $parameters);
+    }
+
     public function sendResponse($result, $message)
     {
         return response()->json(ResponseUtil::makeResponse($message, $result));

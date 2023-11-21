@@ -1,4 +1,11 @@
 ## Create new Laravel project
+
+## Travail a faire 
+
+Creer une authentification de utilisateur en utillisant ui adminlte --auth 
+
+## Commandes
+
 ```bash
 composer create-project --prefer-dist laravel/laravel:^9.0 project-manager
 ```

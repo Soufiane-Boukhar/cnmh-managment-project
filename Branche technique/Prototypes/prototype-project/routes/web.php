@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\MemberController;
+
 
 
 /*
@@ -48,4 +50,15 @@ Route::group(['middleware' => ['auth']], function(){
     Route::delete('/projects/{id}/tasks/{task_id}/delete', [TaskController::class, 'destroy'])->name('task.destroy');
     Route::post('/projects/{id}/tasks/import', [TaskController::class, 'import'])->name('task.import');
     Route::post('/projects/{id}/tasks/export', [TaskController::class, 'export'])->name('task.export');
+
+
+    Route::get('/members', [MemberController::class, 'index'])->name('member.index');
+    Route::get('/member/{id}/show', [MemberController::class, 'show'])->name('member.show');
+    Route::get('/member/create', [MemberController::class, 'create'])->name('member.create');
+    Route::post('/member/store', [MemberController::class, 'store'])->name('member.store');
+    Route::get('/member/{id}/edit', [MemberController::class, 'edit'])->name('member.edit');
+    Route::put('/member/{id}/update', [MemberController::class, 'update'])->name('member.update');
+    Route::delete('/member/{id}/delete', [MemberController::class, 'destroy'])->name('member.destroy');
+ 
+
 });

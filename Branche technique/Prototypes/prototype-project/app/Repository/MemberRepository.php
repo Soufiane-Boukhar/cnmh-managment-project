@@ -8,7 +8,7 @@ use App\Repository\BaseRepository;
 
 class MemberRepository extends BaseRepository{
 
-    public function __construct(Task $model){
+    public function __construct(Member $model){
         $this->model = $model;
     }
 

@@ -13,12 +13,11 @@
     {{ session('error') }}.
 </div>
 @endif
-{{-- <div class="content-wrapper" style="min-height: 1302.4px;"> --}}
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                {{-- <h1>Project-managment</h1> --}}
+                {{-- <h1>Add Member</h1> --}}
             </div>
         </div>
     </div>
@@ -28,10 +27,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                @include('project.fields')
+                @include('member.fields')
             </div>
         </div>
     </div>
 </section>
-{{-- </div> --}}
 @endsection

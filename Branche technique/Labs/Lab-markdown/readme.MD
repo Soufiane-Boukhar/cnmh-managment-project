@@ -17,8 +17,7 @@ Exercise: Create a Simple Webpage
 
 ### Bienvenue sur mon site web !
 
-<img src="img/photo.png" alt="Mon travail" width="200" height="200">
-
+<img src="img/photo.png" alt="Mon travail" width="400" height="300"> 
 
 #### À propos de moi
 Je m'appelle Boukhar Soufiane, et je suis un développeur passionné par les technologies web et mobile.

@@ -13,3 +13,4 @@
        @include('project.search')
     </tbody>
 </table>
+<input type="hidden" id="hidden_page" value="1">

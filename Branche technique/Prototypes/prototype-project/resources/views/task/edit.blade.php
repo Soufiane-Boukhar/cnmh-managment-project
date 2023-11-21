@@ -15,7 +15,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    @include('project.task.fields')
+                    @include('task.fields')
                 </div>
             </div>
         </div>

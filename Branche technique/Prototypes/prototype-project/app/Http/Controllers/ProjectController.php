@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repository\ProjectRepository;
+use App\Models\Project;
 
 class ProjectController extends Controller
 {
@@ -13,8 +14,22 @@ class ProjectController extends Controller
         $this->ProjectRepository = $ProjectRepository;
     }
 
-    public function index(){
+    public function index(Request $request){
         $projects = $this->ProjectRepository->getData();
+
+        if($request->ajax()){
+            $searchProject = $request->get('searchProject');
+            $searchProject = str_replace(" ", "%", $searchProject);
+            $projects = Project::where(function ($query) use ($searchProject) {
+                $query->where('name', 'like', '%' . $searchProject . '%')
+                      ->orWhere('description','like','%'. $searchProject . '%');
+            })
+            ->paginate(1);
+            return view('project.search', compact('projects'))->render();
+
+        }
+
+
         return view('project.index', compact('projects'));
     }
     

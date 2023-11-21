@@ -47,11 +47,14 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/projects/{id}/tasks/{task_id}/edit', [TaskController::class, 'edit'])->name('task.edit');
     Route::put('/projects/{id}/tasks/{task_id}/update', [TaskController::class, 'update'])->name('task.update');
     Route::delete('/projects/{id}/tasks/{task_id}/delete', [TaskController::class, 'destroy'])->name('task.destroy');
-    Route::post('/projects/{id}/tasks/import', [TaskController::class, 'import'])->name('task.import');
-    Route::post('/projects/{id}/tasks/export', [TaskController::class, 'export'])->name('task.export');
+    Route::post('/projects/tasks/import', [TaskController::class, 'import'])->name('task.import');
+    Route::post('/projects/tasks/export', [TaskController::class, 'export'])->name('task.export');
+
 
 
     Route::get('/members', [MemberController::class, 'index'])->name('member.index');
+    Route::get('/projects', [ProjectController::class, 'index'])->name('project.index');
+
     Route::get('/member/{id}/show', [MemberController::class, 'show'])->name('member.show');
     Route::get('/member/create', [MemberController::class, 'create'])->name('member.create');
     Route::post('/member/store', [MemberController::class, 'store'])->name('member.store');

@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-       @include('project.task.search')
+       @include('task.search')
     </tbody>
 </table>
 <input type="hidden" id="page_hidden" value="1">

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repository\TaskRepository;
 use App\Repository\ProjectRepository;
+use App\Models\Task;
 
-
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
 class TaskController extends Controller
 {
@@ -18,16 +20,36 @@ class TaskController extends Controller
 
     }
 
+
     public function index(Request $request, $id)
     {
-        $tasks = $this->TaskRepository->getData();
         $projects = $this->ProjectRepository->getData();
         $project = $this->ProjectRepository->find($id);
-    
-       
-    
+
+        $tasksQuery = $project->tasks();
+
+        if ($request->ajax()) {
+            
+            $searchTask = $request->get('searchTask');
+            $searchTask = str_replace(" ", "%", $searchTask);
+
+            $tasksQuery->where(function ($query) use ($searchTask) {
+                $query->where('name', 'like', '%' . $searchTask . '%')
+                    ->orWhere('description', 'like', '%' . $searchTask . '%');
+            });
+
+            $tasks = $tasksQuery->paginate(1);
+
+            return view('task.search', compact('tasks', 'project'))->render();
+        }
+
+        $tasks = $tasksQuery->paginate(1);
+
         return view('task.index', compact('tasks', 'project', 'projects'));
     }
+
+
+    
     
 
     public function create($id){

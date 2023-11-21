@@ -15,8 +15,9 @@ abstract class BaseRepository {
     abstract public function getFieldData(): array;
     abstract public function model(): string;
 
-    public function getData(){
-        return $this->model->all();
+    public function getData($perPage = 1)
+    {
+        return $this->model->paginate($perPage);
     }
 
     public function create(array $data)

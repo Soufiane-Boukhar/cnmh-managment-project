@@ -18,17 +18,21 @@ class TaskController extends Controller
 
     }
 
-    public function index($id){
+    public function index(Request $request, $id)
+    {
         $tasks = $this->TaskRepository->getData();
         $projects = $this->ProjectRepository->getData();
         $project = $this->ProjectRepository->find($id);
-        return view('project.task.index', compact('tasks', 'project', 'projects'));
+    
+       
+    
+        return view('task.index', compact('tasks', 'project', 'projects'));
     }
     
 
     public function create($id){
         $project = $this->ProjectRepository->find($id);
-        return view('project.task.create',compact('project'));
+        return view('task.create',compact('project'));
     }
 
     public function store(Request $request){
@@ -46,7 +50,7 @@ class TaskController extends Controller
         $project = $this->ProjectRepository->find($id);
 
 
-        return view('project.task.edit',compact('task','project'));
+        return view('task.edit',compact('task','project'));
 
     }
 
@@ -62,7 +66,7 @@ class TaskController extends Controller
         $result = $this->TaskRepository->destroy($id);
     
         if ($result) {
-            return redirect()->route('project.task.index')->with('success', 'Task has been removed successfully.');
+            return redirect()->route('task.index')->with('success', 'Task has been removed successfully.');
         } else {
             return back()->with('error', 'Failed to remove project. Please try again.');
         }

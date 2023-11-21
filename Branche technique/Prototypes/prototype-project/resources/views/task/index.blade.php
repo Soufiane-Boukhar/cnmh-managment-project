@@ -66,20 +66,38 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
 
-$(document).ready(function() {
-   
+        $(document).ready(function(){
 
-    $('body').on('keyup', '#searchTask', function() {
-        var search = $('#searchTask').val();
-        var page = $('#page_hidden').val();
-
-        console.log(search);
-    });
-
-});
+            function fetch_data(page,search){
+                $.ajax({
+                    url:"?page=" + page + '&searchTask=' + search,
+                    success: function(data){
+                       console.log(data);
+                    }
+                });
 
 
+            }
 
+            $('body').on('click', '.pagination a', function(param){
+                param.preventDefault();
+
+                var page = $(this).attr('href').split('page=')[1];
+                var search = $('#searchTask').val();
+
+                fetch_data(page,search);
+            });
+
+            $('body').on('keyup', '#searchTask', function(){
+                var search = $('#searchTask').val();
+                var page = $('#page_hidden').val();
+
+                fetch_data(page,search);
+            })
+
+            fetch_data(1, '');
+
+        });
 
     </script>
 

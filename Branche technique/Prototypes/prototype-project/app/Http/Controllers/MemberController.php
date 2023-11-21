@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repository\MemberRepository;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Pagination\Paginator;
+use App\Models\Member;
+
 
 
 class MemberController extends Controller
@@ -15,12 +18,23 @@ class MemberController extends Controller
         $this->MemberRepository = $MemberRepository;
     }
 
-    public function index(){
-        $allMembers  = $this->MemberRepository->getData();
+    public function index(Request $request){
+        $members = Member::where('role', 'member')->paginate(1); 
+
+        if($request->ajax()){
+            $searchMember = $request->get('searchMember');
+            $searchMember = str_replace(" ", "%", $searchMember);
+            $members = Member::where('role', 'member')
+            ->where(function ($query) use ($searchMember) {
+                $query->where('name', 'like', '%' . $searchMember . '%')
+                      ->orWhere('email','like','%'. $searchMember . '%');
+            })
+            ->paginate(1);
+            return view('member.search', compact('members'))->render();
+
+        }
         
-        $members = $allMembers->filter(function ($member) {
-            return $member->role === 'member';
-        });
+
         return view('member.index', compact('members'));
     }
 

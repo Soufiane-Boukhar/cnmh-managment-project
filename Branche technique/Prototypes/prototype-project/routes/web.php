@@ -40,7 +40,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/projects/export', [ProjectController::class, 'export'])->name('project.export');
 
 
-    Route::get('/project/tasks', [TaskController::class, 'index'])->name('task.show');
     Route::get('/projects/{id}/tasks', [TaskController::class, 'index'])->name('task.index');
     Route::get('/projects/{id}/tasks/show', [TaskController::class, 'show'])->name('task.show');
     Route::get('/projects/{id}/tasks/create', [TaskController::class, 'create'])->name('task.create');

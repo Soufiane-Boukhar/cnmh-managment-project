@@ -73,7 +73,7 @@ class ProjetPolicy{
      */
     public function delete(User $user, Project $project)
     {
-        return $user->role != 'admin';
+        return $user->role === 'admin';
     }
 
     /**

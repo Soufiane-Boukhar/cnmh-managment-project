@@ -9,3 +9,23 @@ Exercise: Create a Simple Webpage
     - En-tête (header) avec votre nom
     - Liste à puces d'au moins trois compétences que vous possédez
     - Un lien vers votre profil Github
+
+
+## Solution d'exercice
+
+### Mon Portfolio
+
+### Bienvenue sur mon site web !
+
+![Mon Photo](img/photo.png)
+
+#### À propos de moi
+Je m'appelle Boukhar Soufiane, et je suis un développeur passionné par les technologies web et mobile.
+
+#### Mes Compétences
+- Développement web
+- Conception d'interfaces utilisateur
+- Résolution de problèmes
+
+#### Contact
+Retrouvez-moi sur [Github](https://github.com/boukharSoufiane1998).

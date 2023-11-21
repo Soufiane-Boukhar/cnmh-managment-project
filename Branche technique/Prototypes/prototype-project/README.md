@@ -1,7 +1,7 @@
 # Project Name
 
 ## Overview
-This Laravel project manages tasks and projects with features such as import/export using Maatwebsite Excel, UI built with Laravel UI and AdminLTE, user permissions with Spatie Laravel Permission, and functionality for search, pagination, and filtering.
+Create web application built with Laravel to manage projects and tasks. It also uses the Maatwebsite Excel package to export and import data. Built with Laravel UI authentification and AdminLTE, user permissions with Spatie Laravel Permission, and functionality for search, pagination, and filtering.
 
 ## Prerequisites
 - PHP 8.2

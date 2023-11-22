@@ -30,9 +30,11 @@
             @enderror
             <div class="form-group mt-2 mb-0">
                 <label for="Description">Description</label>
-                <input name="description" type="text" class="form-control" id="Description" placeholder="Description"
-                    value="{{ old('description', isset($project) ? $project->description : '') }}">
+                    <textarea name="description" id="inputDescription" class="form-control" 
+                    oninput="setCustomValidity('')">{{ old('description', isset($project) ? $project->description : '') }}</textarea>
             </div>
+
+           
             @error('description')
             <div class="text-danger ">{{ $message }}</div>
             @enderror
@@ -46,7 +48,7 @@
             @enderror
             <div class="form-group ">
                 <label for="date">End Date</label>
-                <input name="end_date" type="date" class="form-control" id="date" 
+                <input name="end_date" type="date" class="form-control" id="date"
                     value="{{ old('end_date', isset($project) ? $project->end_date : '') }}">
             </div>
             @error('end_date')

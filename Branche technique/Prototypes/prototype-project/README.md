@@ -1,4 +1,4 @@
-# Project Name
+# Prototype project and tasks
 
 ## Overview
 Create web application built with Laravel to manage projects and tasks. It also uses the Maatwebsite Excel package to export and import data. Built with Laravel UI authentification and AdminLTE, user permissions with Spatie Laravel Permission, and functionality for search, pagination, and filtering.

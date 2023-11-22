@@ -62,5 +62,16 @@
                 reserved.
             </footer>
         </div>
+        <script src="https://cdn.tiny.cloud/1/rstxdbg3rllarurra768zcwtwphhxqlxqvnhebaxc017ot19/tinymce/6/tinymce.min.js"
+            referrerpolicy="origin"></script>
+        <script>
+        tinymce.init({
+            selector: 'textarea#inputDescription',
+            plugins: 'autoresize',
+            autoresize_bottom_margin: 16,
+            menubar: false,
+            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat'
+        });
+        </script>
     </body>
 </x-laravel-ui-adminlte::adminlte-layout>

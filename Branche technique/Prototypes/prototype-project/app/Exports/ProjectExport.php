@@ -17,7 +17,7 @@ class ProjectExport implements FromCollection, WithHeadings, WithStyles
     public function collection()
     {
         return Project::select(
-            'nom',
+            'name',
             'description',
             'start_date',
             'end_date',
@@ -30,7 +30,7 @@ class ProjectExport implements FromCollection, WithHeadings, WithStyles
     public function headings(): array
     {
         return [
-            'nom',
+            'name',
             'description',
             'start_date',
             'end_date',
@@ -40,7 +40,7 @@ class ProjectExport implements FromCollection, WithHeadings, WithStyles
     public function styles(Worksheet $sheet)
     {
 
-        $sheet->getStyle("A1:E300")->applyFromArray([
+        $sheet->getStyle("A1:D300")->applyFromArray([
             'fill' => [
                 'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
                 'startColor' => [
@@ -55,7 +55,7 @@ class ProjectExport implements FromCollection, WithHeadings, WithStyles
             ],
         ]);
 
-        $sheet->getStyle("A1:E1")->applyFromArray([
+        $sheet->getStyle("A1:D1")->applyFromArray([
             'font' => [
                 'bold' => true,
             ],

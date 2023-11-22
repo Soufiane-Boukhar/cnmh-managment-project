@@ -3,10 +3,11 @@
 namespace App\Imports;
 
 use App\Models\Project;
+use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithHeadingRow; 
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class ImportProject implements ToModel, WithHeadingRow 
+class ImportProject implements ToModel, WithHeadingRow
 {
     public function model(array $row)
     {
@@ -17,19 +18,25 @@ class ImportProject implements ToModel, WithHeadingRow
             'end_date' => 'required',
         ];
 
+        $rules['name'] = Rule::unique('projects', 'name');
+
         $validator = \Validator::make($row, $rules);
 
         if ($validator->fails()) {
             return null;
         }
 
-        return new Projet([
-            'name' => $row['name'], 
+        $existingProject = Project::where('name', $row['name'])->first();
+
+        if ($existingProject) {
+            return null;
+        }
+
+        return new Project([
+            'name' => $row['name'],
             'description' => $row['description'],
             'start_date' => $row['start_date'],
             'end_date' => $row['end_date'],
         ]);
     }
-
-
 }

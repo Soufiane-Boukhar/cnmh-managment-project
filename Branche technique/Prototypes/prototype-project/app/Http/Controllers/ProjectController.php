@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repository\ProjectRepository;
 use App\Models\Project;
+use App\Exports\ProjectExport;
+use App\Imports\ImportProject;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProjectController extends Controller
 {
@@ -81,6 +84,24 @@ class ProjectController extends Controller
         } else {
             return back()->with('error', 'Failed to remove project. Please try again.');
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new ProjectExport, 'Project.xlsx');
+    }
+
+
+    public function import(Request $request)
+    {
+        $file = $request->file('file');
+        
+        if ($file) {
+            $path = $file->store('files');
+            Excel::import(new ImportProject, $path);
+        }
+        
+        return redirect()->back();
     }
     
 }

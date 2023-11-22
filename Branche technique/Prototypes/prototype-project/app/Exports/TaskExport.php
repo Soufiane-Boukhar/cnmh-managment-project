@@ -17,7 +17,7 @@ class TaskExport implements FromCollection, WithHeadings, WithStyles
     public function collection()
     {
         return Task::select(
-            'nom',
+            'name',
             'description',
             'start_date',
             'end_date',
@@ -31,7 +31,7 @@ class TaskExport implements FromCollection, WithHeadings, WithStyles
     public function headings(): array
     {
         return [
-            'nom',
+            'name',
             'description',
             'start_date',
             'end_date',
@@ -43,7 +43,7 @@ class TaskExport implements FromCollection, WithHeadings, WithStyles
     {
         $lastRow = $sheet->getHighestRow();
 
-        $sheet->getStyle("A1:C{$lastRow}")->applyFromArray([
+        $sheet->getStyle("A1:E{$lastRow}")->applyFromArray([
             'fill' => [
                 'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
                 'startColor' => [
@@ -58,7 +58,7 @@ class TaskExport implements FromCollection, WithHeadings, WithStyles
             ],
         ]);
 
-        $sheet->getStyle("A1:C1")->applyFromArray([
+        $sheet->getStyle("A1:E1")->applyFromArray([
             'font' => [
                 'bold' => true,
             ],

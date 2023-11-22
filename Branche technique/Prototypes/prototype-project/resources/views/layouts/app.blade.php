@@ -72,6 +72,10 @@
             menubar: false,
             toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat'
         });
+
+        function submitForm() {
+            document.getElementById("importForm").submit();
+        }
         </script>
     </body>
 </x-laravel-ui-adminlte::adminlte-layout>

@@ -17,7 +17,7 @@
             class="btn btn-sm btn-default">
             <i class="fas fa-edit"></i>
         </a>
-        <form method="POST" action="" style="display: inline-block;">
+        <form method="POST" action="{{ route('task.destroy', ['id' => $task->project_id, 'task_id' => $task->id]) }}" style="display: inline-block;">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"><i

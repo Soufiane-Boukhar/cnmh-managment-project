@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::put('/projects/{id}/update', [ProjectController::class, 'update'])->name('project.update');
     Route::delete('/projects/{id}/delete', [ProjectController::class, 'destroy'])->name('project.destroy');
     Route::post('/projects/import', [ProjectController::class, 'import'])->name('project.import');
-    Route::post('/projects/export', [ProjectController::class, 'export'])->name('project.export');
+    Route::get('/projects/export', [ProjectController::class, 'export'])->name('project.export');
 
 
     Route::get('/projects/{id}/tasks', [TaskController::class, 'index'])->name('task.index');
@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::put('/projects/{id}/tasks/{task_id}/update', [TaskController::class, 'update'])->name('task.update');
     Route::delete('/projects/{id}/tasks/{task_id}/delete', [TaskController::class, 'destroy'])->name('task.destroy');
     Route::post('/projects/tasks/import', [TaskController::class, 'import'])->name('task.import');
-    Route::post('/projects/tasks/export', [TaskController::class, 'export'])->name('task.export');
+    Route::get('/projects/tasks/export', [TaskController::class, 'export'])->name('task.export');
 
 
 

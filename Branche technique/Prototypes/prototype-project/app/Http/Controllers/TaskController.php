@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Repository\TaskRepository;
 use App\Repository\ProjectRepository;
 use App\Models\Task;
-
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\TaskExport;
+use App\Imports\ImportTask;
 
 class TaskController extends Controller
 {
@@ -86,12 +88,32 @@ class TaskController extends Controller
 
     public function destroy($id){
         $result = $this->TaskRepository->destroy($id);
+
+        dd($result);
     
         if ($result) {
-            return redirect()->route('task.index')->with('success', 'Task has been removed successfully.');
+            return back()->with('success', 'Task has been removed successfully.');
         } else {
             return back()->with('error', 'Failed to remove project. Please try again.');
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new TaskExport, 'Task.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+       
+        $file = $request->file('file');
+        
+        if ($file) {
+            $path = $file->store('files');
+            Excel::import(new ImportTask, $path);
+        }
+        
+        return redirect()->back();
     }
     
 }

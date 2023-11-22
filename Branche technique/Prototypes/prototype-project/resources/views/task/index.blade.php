@@ -27,6 +27,17 @@
                 <div class="card">
                     <div class="card-header col-md-12">
                         <div class="d-flex justify-content-end align-items-center  p-0">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-sm mr-3 dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{$project->name}}
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    @foreach($projects as $project)
+                                    <a class="dropdown-item" href="/projects/{{$project->id}}/tasks">{{$project->name}}</a>
+                                    @endforeach
+                                </div>
+                            </div>
                             <div class="input-group input-group-sm col-md-3 p-0">
                                 <input id="searchTask" type="text" class="form-control float-right"
                                     placeholder="Search">
@@ -35,7 +46,9 @@
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
+
                             </div>
+
                         </div>
                     </div>
                     <div class="card-body table-responsive p-0 table-tasks">
@@ -83,7 +96,7 @@ $(document).ready(function() {
         fetch_data(page, search);
     })
 
-   
+
     fetch_data(1, '');
 
 });

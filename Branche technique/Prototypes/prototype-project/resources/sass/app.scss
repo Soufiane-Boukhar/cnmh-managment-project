@@ -3,3 +3,7 @@
 
 // Bootstrap
 @import '~admin-lte/build/scss/adminlte';
+
+table tr th, table tr td{
+    text-align: center;
+}

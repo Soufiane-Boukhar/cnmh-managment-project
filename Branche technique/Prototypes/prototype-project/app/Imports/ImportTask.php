@@ -11,9 +11,11 @@ class ImportTask implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         $rules = [
-            'titre' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'description' => 'required',
-            'id_projet' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'project_id' => 'required',
         ];
 
         $validator = \Validator::make($row, $rules);
@@ -23,9 +25,12 @@ class ImportTask implements ToModel, WithHeadingRow
         }
 
         return new Task([
-            'titre' => $row['titre'], 
+            'name' => $row['titre'], 
             'description' => $row['description'],
-            'id_projet' => $row['id_projet'],
+            'start_date' => $row['start_date'],
+            'end_date' => $row['end_date'],
+            'project_id' => $row['project_id'],
+
         ]);
     }
 

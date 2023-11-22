@@ -2,19 +2,19 @@
 
 namespace App\Imports;
 
-use App\Models\Projet;
+use App\Models\Project;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow; 
 
-class ImportProjet implements ToModel, WithHeadingRow 
+class ImportProject implements ToModel, WithHeadingRow 
 {
     public function model(array $row)
     {
         $rules = [
-            'description' => 'required|string|max:255',
-            'date_debut' => 'required',
-            'date_fin' => 'required',
-            'id_user' => 'required',
+            'name' => 'required|string|max:255',
+            'description' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
         ];
 
         $validator = \Validator::make($row, $rules);
@@ -24,11 +24,10 @@ class ImportProjet implements ToModel, WithHeadingRow
         }
 
         return new Projet([
-            'nom' => $row['nom'], 
+            'name' => $row['name'], 
             'description' => $row['description'],
-            'date_debut' => $row['date_debut'],
-            'date_fin' => $row['date_fin'],
-            'id_user' => $row['id_user'],
+            'start_date' => $row['start_date'],
+            'end_date' => $row['end_date'],
         ]);
     }
 

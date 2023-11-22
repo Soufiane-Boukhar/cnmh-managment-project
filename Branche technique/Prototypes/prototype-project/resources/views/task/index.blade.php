@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Taches de {{ $project ? $project->name : '' }} </h1>
+                <h1>Tasks of {{ $project ? $project->name : '' }} </h1>
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
@@ -63,21 +63,17 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
 $(document).ready(function() {
+    
+    var id;
 
-    var id = "";
-
-    function fetch_data(page, search) {
-        var id = $('#id_project').val();
+    function fetch_data(page, search, id) {
         $.ajax({
             url: "/projects/" + id + "/tasks?page=" + page + '&searchTask=' + search,
             success: function(data) {
                 $('tbody').html('');
                 $('tbody').html(data);
-
             }
         });
-
-
     }
 
     $('body').on('click', '.pagination a', function(param) {
@@ -86,19 +82,18 @@ $(document).ready(function() {
         var page = $(this).attr('href').split('page=')[1];
         var search = $('#searchTask').val();
 
-        fetch_data(page, search);
+        fetch_data(page, search, id);
     });
 
     $('body').on('keyup', '#searchTask', function() {
         var search = $('#searchTask').val();
         var page = $('#page_hidden').val();
 
-        fetch_data(page, search);
-    })
+        fetch_data(page, search, id);
+    });
 
-
-    fetch_data(1, '');
-
+    id = $('#id_project').val();
+    fetch_data(1, '', id);
 });
 </script>
 

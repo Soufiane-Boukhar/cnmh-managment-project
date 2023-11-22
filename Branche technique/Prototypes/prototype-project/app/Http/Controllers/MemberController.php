@@ -7,10 +7,12 @@ use App\Repository\MemberRepository;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Pagination\Paginator;
 use App\Models\Member;
+use App\Http\Controllers\AppBaseController;
 
 
 
-class MemberController extends Controller
+
+class MemberController extends AppBaseController
 {
     protected $MemberRepository;
 

@@ -11,8 +11,10 @@ use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\TaskExport;
 use App\Imports\ImportTask;
+use App\Http\Controllers\AppBaseController;
 
-class TaskController extends Controller
+
+class TaskController extends AppBaseController
 {
     protected $TaskRepository;
 

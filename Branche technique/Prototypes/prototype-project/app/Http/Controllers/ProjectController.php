@@ -8,8 +8,9 @@ use App\Models\Project;
 use App\Exports\ProjectExport;
 use App\Imports\ImportProject;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\AppBaseController;
 
-class ProjectController extends Controller
+class ProjectController extends AppBaseController
 {
     protected $ProjectRepository;
 

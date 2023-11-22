@@ -4,7 +4,7 @@
         {{$task->name}}
     </td>
     <td>
-        {{$task->description}}
+        {!! $task->description !!}
     </td>
     <td>
         {{$task->start_date}}

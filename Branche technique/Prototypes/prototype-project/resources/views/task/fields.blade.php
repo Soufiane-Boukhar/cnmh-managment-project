@@ -30,8 +30,8 @@
             </div>
             <div class="form-group mb-3">
                 <label for="Description">Description</label>
-                <input name="description" type="text" class="form-control" id="Description" placeholder="Description"
-                    value="{{ old('description', isset($task) ? $task->description : '') }}">
+                    <textarea name="description" id="inputDescription" class="form-control" 
+                    oninput="setCustomValidity('')">{{ old('description', isset($task) ? $task->description : '') }}</textarea>
                 @error('description')
                 <div class="text-danger">{{ $message }}</div>
                 @enderror

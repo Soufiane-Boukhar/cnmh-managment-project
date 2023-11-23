@@ -11,14 +11,14 @@ return [
     'list' => 'List of projects',
     'import' => 'Import',
     'export' => 'Export',
-    'view' => 'View',
+    'view' => 'View Tasks',
 
     'name' => 'Name',
     'description' => 'Description',
     'startDate' => 'Start Date',
     'endDate' => 'End Date',
 
-    'action' => 'Action',
+    'action' => 'Actions',
     'home' => 'Home',
     'home' => 'Home',
     'home' => 'Home',

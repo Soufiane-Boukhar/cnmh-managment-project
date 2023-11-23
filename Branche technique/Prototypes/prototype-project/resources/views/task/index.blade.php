@@ -8,7 +8,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="{{ route('task.create', $project->id) }}" class="btn btn-sm btn-primary">{{__('message.add')}}</a>
+                    <a href="{{ route('task.create', $project->id) }}" class="btn btnAdd">{{__('message.add')}}</a>
                 </div>
             </div>
         </div>
@@ -26,9 +26,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header col-md-12">
-                        <div class="d-flex justify-content-end align-items-center  p-0">
+                        <div class="d-flex justify-content-between">
                             <div class="dropdown">
-                                <button class="btn btn-primary btn-sm mr-3 dropdown-toggle" type="button" id="dropdownMenuButton"
+                                <i class="fa-solid fa-filter" style="color: #000505;"></i>
+                                <button class="btn btn-sm mr-3 dropdown-toggle btnAddSelect" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{$project->name}}
                                 </button>
@@ -38,6 +39,8 @@
                                     @endforeach
                                 </div>
                             </div>
+
+                            <!-- search -->
                             <div class="input-group input-group-sm col-md-3 p-0">
                                 <input id="searchTask" type="text" class="form-control float-right"
                                     placeholder="Search">

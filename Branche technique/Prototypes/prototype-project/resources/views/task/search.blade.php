@@ -49,14 +49,18 @@
                     <input type="file" id="upload" name="file" style="display:none;" onchange="submitForm()" />
                 </form>
                 <a href="{{ route('task.export') }}" class="btn  btn-default btn-sm mt-0 mx-2">
+                    <i class="fa-solid fa-file-export"></i>
                     {{__('message.export')}}
                 </a>
             </div>
 
         </div>
     </td>
+    <td></td>
+    <td></td>
+    <td></td>
     @endrole
-    <td>
+    <td class="taskPaginate">
         {{$tasks->links()}}
     </td>
 

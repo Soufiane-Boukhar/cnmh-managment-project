@@ -95,11 +95,11 @@ $(document).ready(function() {
         fetch_data(page, search);
     });
 
-    $('body').on('change', '#projectSelect', function() {
-        var search = $('#projectSelect').val();
-        var page = $('#page_hidden').val();
-        fetch_data(page, search);
-    });
+    // $('body').on('change', '#projectSelect', function() {
+    //     var search = $('#projectSelect').val();
+    //     var page = $('#page_hidden').val();
+    //     fetch_data(page, search);
+    // });
 
     fetch_data(1, '');
 });

@@ -3,7 +3,7 @@
     <body class="hold-transition login-page">
         <div class="login-box">
             <div class="login-logo">
-                <a href=""><b>Project Managment</b></a>
+                <a href=""><b>Projects Managment</b></a>
             </div>
             <!-- /.login-logo -->
 

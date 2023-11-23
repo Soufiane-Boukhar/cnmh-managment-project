@@ -3,7 +3,9 @@
         <tr>
             <th>Name</th>
             <th>Email</th>
+            @role('project-leader')
             <th>action</th>
+            @endrole
         </tr>
     </thead>
     <tbody>

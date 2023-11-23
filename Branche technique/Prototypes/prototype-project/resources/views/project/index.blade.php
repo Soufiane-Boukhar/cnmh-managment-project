@@ -19,11 +19,13 @@
             <div class="col-sm-6">
                 <h1>{{__('message.list')}}</h1>
             </div>
+            @role('project-leader')
             <div class="col-sm-6">
                 <div class="float-sm-right">
                     <a href="{{ route('project.create') }}" class="btn btnAdd">{{__('message.add')}}</a>
                 </div>
             </div>
+            @endrole
         </div>
     </div>
 </div>
@@ -33,17 +35,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="d-md-flex justify-content-between">
-                        <div class="form-group input-group-sm mb-0 col-md-2 d-flex  justify-content-start">
-                            <select id="projectSelect" class="form-control btnAddSelect" onchange="updateUrl()">
-                                <option value="" class="bg-light">{{__('message.selectProject')}}</option>
-                                @foreach ($projects as $project)
-                                <option class="bg-light" value="{{ $project->name }}">{{ $project->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <!-- search -->
+                        <div class="d-md-flex justify-content-end">
                         <div class="input-group input-group-sm col-md-3 d-flex  justify-content-end">
                             <input id="searchProject" type="text" class="form-control float-right" placeholder="Search">
                             <div class="input-group-append">
@@ -54,10 +46,6 @@
                         </div>
                         </div>                        
                     </div>
-
-
-
-
                     <div class="card-body table-responsive p-0 table-data">
                         {{-- @include('project.table') --}}
                         @include('project.table', ['projects' => $projects])

@@ -4,20 +4,24 @@
     <td>{!! $project->description !!}</td>
     <td>{{ $project->start_date }}</td>
     <td>{{ $project->end_date }}</td>
-    @role('project-leader')
     <td>
+        @role('project-leader')
+
         <a href="{{ route('project.edit', $project) }}" class="btn btn-sm btn-default">
             <i class="fas fa-edit"></i>
         </a>
+        @endrole
         <a href="{{ route('task.index' , $project->id) }}" class="btn btn-sm btn-default">{{__('message.view')}}</a>
+        @role('project-leader')
         <form method="POST" action="{{ route('project.destroy', $project) }}" style="display: inline-block;">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"><i
                     class="fas fa-trash"></i></button>
         </form>
+        @endrole
+
     </td>
-    @endrole
 </tr>
 @empty
 <tr>
@@ -29,7 +33,7 @@
 <tr>
     @role('project-leader')
     <td>
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between mt-2">
             <div class="d-flex align-items-center">
                 <form action="{{ route('project.import') }}" method="post" enctype="multipart/form-data"
                     id="importForm">
@@ -52,7 +56,7 @@
     <td></td>
     <td></td>
     @endrole
-    <td>
+    <td class="">
         {{$projects->links()}}
     </td>
 </tr>

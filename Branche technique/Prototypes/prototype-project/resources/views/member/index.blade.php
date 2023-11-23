@@ -10,13 +10,15 @@
         @endif
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Memebers</h1>
+                <h1>List of members</h1>
             </div>
+            @role('project-leader')
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href=" {{ route('member.create') }} " class="btn btn-sm btn-primary">Add Memeber</a>
+                    <a href=" {{ route('member.create') }} " class="btn btnAdd">Add Memeber</a>
                 </div>
             </div>
+            @endrole
         </div>
     </div>
 </div>

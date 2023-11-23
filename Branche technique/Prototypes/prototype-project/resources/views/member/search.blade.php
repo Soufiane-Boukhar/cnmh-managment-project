@@ -2,6 +2,7 @@
     <tr>
         <td>{{ $member->name }}</td>
         <td>{{ $member->email }}</td>
+        @role('project-leader')
         <td>
             <a href="{{ route('member.edit', $member) }}" class="btn btn-sm btn-default">
                 <i class="fas fa-edit"></i>
@@ -14,6 +15,7 @@
                 </button>
             </form>
         </td>
+        @endrole
     </tr>
 @empty
     <tr>

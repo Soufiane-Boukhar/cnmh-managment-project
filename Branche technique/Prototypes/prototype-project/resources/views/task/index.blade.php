@@ -6,11 +6,14 @@
             <div class="col-sm-6">
                 <h1>{{__('message.tasks')}} of {{ $project ? $project->name : '' }} </h1>
             </div>
+            @role('project-leader')
             <div class="col-sm-6">
                 <div class="float-sm-right">
                     <a href="{{ route('task.create', $project->id) }}" class="btn btnAdd">{{__('message.add')}}</a>
                 </div>
             </div>
+            @endrole
+
         </div>
     </div>
 </div>
@@ -29,13 +32,15 @@
                         <div class="d-flex justify-content-between">
                             <div class="dropdown">
                                 <i class="fa-solid fa-filter" style="color: #000505;"></i>
-                                <button class="btn btn-sm mr-3 dropdown-toggle btnAddSelect" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-sm mr-3 dropdown-toggle btnAddSelect" type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
                                     {{$project->name}}
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     @foreach($projects as $project)
-                                    <a class="dropdown-item" href="/projects/{{$project->id}}/tasks">{{$project->name}}</a>
+                                    <a class="dropdown-item"
+                                        href="/projects/{{$project->id}}/tasks">{{$project->name}}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -66,7 +71,7 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
 $(document).ready(function() {
-    
+
     var id;
 
     function fetch_data(page, search, id) {

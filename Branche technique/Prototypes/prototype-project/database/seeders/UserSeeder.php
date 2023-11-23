@@ -25,6 +25,7 @@ class UserSeeder extends Seeder
 
         $permissionsLeader = [
             'create-ProjectController',
+            'store-ProjectController',
             'show-ProjectController',
             'edit-ProjectController',
             'update-ProjectController',
@@ -34,6 +35,7 @@ class UserSeeder extends Seeder
             'export-ProjectController',
 
             'create-TaskController',
+            'store-TaskController',
             'show-TaskController',
             'edit-TaskController',
             'update-TaskController',
@@ -43,12 +45,12 @@ class UserSeeder extends Seeder
             'export-TaskController',
 
             'create-MemberController',
+            'store-MemberController',
             'show-MemberController',
             'edit-MemberController',
             'update-MemberController',
             'destroy-MemberController',
             'index-MemberController',
-
         ];
 
         $user->givePermissionTo($permissionsLeader);

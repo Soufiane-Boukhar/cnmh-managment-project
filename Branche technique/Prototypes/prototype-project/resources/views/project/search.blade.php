@@ -28,7 +28,7 @@
     </td>
 </tr>
 @endforelse
-<tr>
+<tr class="tr">
     @role('project-leader')
     <td>
         <div class="d-flex justify-content-between align-items-center p-2">

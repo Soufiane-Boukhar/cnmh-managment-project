@@ -10,6 +10,7 @@ class PermissionsTableSeeder extends Seeder
     public function run()
     {
         Permission::create(['name' => 'create-ProjectController']);
+        Permission::create(['name' => 'store-ProjectController']);
         Permission::create(['name' => 'show-ProjectController']);
         Permission::create(['name' => 'edit-ProjectController']);
         Permission::create(['name' => 'update-ProjectController']);
@@ -20,6 +21,7 @@ class PermissionsTableSeeder extends Seeder
 
 
         Permission::create(['name' => 'create-TaskController']);
+        Permission::create(['name' => 'store-TaskController']);
         Permission::create(['name' => 'show-TaskController']);
         Permission::create(['name' => 'edit-TaskController']);
         Permission::create(['name' => 'update-TaskController']);
@@ -30,6 +32,7 @@ class PermissionsTableSeeder extends Seeder
 
 
         Permission::create(['name' => 'create-MemberController']);
+        Permission::create(['name' => 'store-MemberController']);
         Permission::create(['name' => 'show-MemberController']);
         Permission::create(['name' => 'edit-MemberController']);
         Permission::create(['name' => 'update-MemberController']);

@@ -12,6 +12,7 @@ Create web application built with Laravel to manage projects and tasks. It also 
 ## Getting Started
 
 ### Installation
+
 ```bash
 
 # Clone the repository
@@ -31,3 +32,52 @@ npm install && npm run dev
 cp .env.example .env
 php artisan key:generate
 php artisan migrate --seed
+
+```
+
+### Packages
+
+```bash
+
+# Configure your php.ini file php
+extension=gd enabled
+
+# Install package excel
+ composer require maatwebsite/excel:*
+
+# Run commande
+composer update
+
+# Configure your file config/app.php
+
+'providers' => ServiceProvider::defaultProviders()->merge([
+    Maatwebsite\Excel\ExcelServiceProvider::class,
+]);
+
+'aliases' => Facade::defaultAliases()->merge([
+    'Excel' =>Maatwebsite\Excel\Facades\Excel::class,
+])->toArray(),
+
+# Run commande
+composer dump-autoload
+
+# Run commande 
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" --tag=config
+
+# Install permission package
+composer require spatie/laravel-permission
+
+# Run commande
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+
+# Run commande
+php artisan migrate:fresh
+
+# Run commande
+php artisan db:seed
+
+
+```
+
+
+

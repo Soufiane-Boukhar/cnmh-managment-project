@@ -9,7 +9,7 @@ class PermissionsTableSeeder extends Seeder
 {
     public function run()
     {
-        $controllers = ['Project', 'Task', 'Member']; // Add more controllers as needed
+        $controllers = ['Project', 'Task', 'Member']; 
 
         foreach ($controllers as $controller) {
             $this->createPermissionsForController($controller);

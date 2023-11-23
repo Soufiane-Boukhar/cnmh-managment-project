@@ -5,7 +5,6 @@
             <th>{{__('message.description')}}</th>
             <th>{{__('message.startDate')}}</th>
             <th>{{__('message.endDate')}}</th>
-            <th>{{__('message.tasks')}}</th>
             @role('project-leader')
             <th>{{__('message.action')}}</th>
             @endrole

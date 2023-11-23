@@ -32,27 +32,32 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header col-md-12">
-                        <div class="d-flex justify-content-end align-items-center  p-0">
-                            <div class="form-group input-group-sm mb-0 col-md-2">
-                                <select id="projectSelect" class="form-control bg-primary" onchange="updateUrl()">
-                                        <option value="" class="bg-light">{{__('message.selectProject')}}</option>
-                                        @foreach ($projects as $project)
-                                          <option class="bg-light" value="{{ $project->name }}">{{ $project->name }}</option>
-                                        @endforeach
-                                </select>
-                            </div>
-                            <div class="input-group input-group-sm col-md-3 p-0">
-                                <input id="searchProject" type="text" class="form-control float-right"
-                                    placeholder="Search">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-default">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
+                    <div class="card-header">
+                        <div class="d-md-flex justify-content-between">
+                        <div class="form-group input-group-sm mb-0 col-md-2 d-flex  justify-content-start">
+                            <select id="projectSelect" class="form-control bg-primary" onchange="updateUrl()">
+                                <option value="" class="bg-light">{{__('message.selectProject')}}</option>
+                                @foreach ($projects as $project)
+                                <option class="bg-light" value="{{ $project->name }}">{{ $project->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <!-- search -->
+                        <div class="input-group input-group-sm col-md-3 d-flex  justify-content-end">
+                            <input id="searchProject" type="text" class="form-control float-right" placeholder="Search">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-default">
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </div>
                         </div>
+                        </div>                        
                     </div>
+
+
+
+
                     <div class="card-body table-responsive p-0 table-data">
                         {{-- @include('project.table') --}}
                         @include('project.table', ['projects' => $projects])

@@ -4,14 +4,12 @@
     <td>{!! $project->description !!}</td>
     <td>{{ $project->start_date }}</td>
     <td>{{ $project->end_date }}</td>
-    <td>
-        <a href="{{ route('task.index' , $project->id) }}" class="btn btn-sm btn-primary">{{__('message.view')}}</a>
-    </td>
     @role('project-leader')
     <td>
         <a href="{{ route('project.edit', $project) }}" class="btn btn-sm btn-default">
             <i class="fas fa-edit"></i>
         </a>
+        <a href="{{ route('task.index' , $project->id) }}" class="btn btn-sm btn-default">{{__('message.view')}}</a>
         <form method="POST" action="{{ route('project.destroy', $project) }}" style="display: inline-block;">
             @csrf
             @method('DELETE')
@@ -28,27 +26,31 @@
     </td>
 </tr>
 @endforelse
-<tr class="tr">
+<tr>
     @role('project-leader')
     <td>
-        <div class="d-flex justify-content-between align-items-center p-2">
+        <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
                 <form action="{{ route('project.import') }}" method="post" enctype="multipart/form-data"
                     id="importForm">
                     @csrf
                     <label for="upload" class="btn btn-default btn-sm mb-0 font-weight-normal">
-                        <i class="fa-solid fa-file-arrow-down"></i>
+                        <i class="fa-solid fa-download"></i>
                         {{__('message.import')}}
                     </label>
                     <input type="file" id="upload" name="file" style="display:none;" onchange="submitForm()" />
                 </form>
                 <a href="{{ route('project.export') }}" class="btn  btn-default btn-sm mt-0 mx-2">
+                    <i class="fa-solid fa-file-export"></i>
                     {{__('message.export')}}
                 </a>
             </div>
 
         </div>
     </td>
+    <td></td>
+    <td></td>
+    <td></td>
     @endrole
     <td>
         {{$projects->links()}}

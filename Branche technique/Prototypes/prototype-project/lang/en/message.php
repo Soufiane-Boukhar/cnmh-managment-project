@@ -8,7 +8,7 @@ return [
     'members' => 'Members',
     'add' => 'Add New',
     'selectProject' => 'Select Project',
-    'list' => 'List Of Projects',
+    'list' => 'List of projects',
     'import' => 'Import',
     'export' => 'Export',
     'view' => 'View',

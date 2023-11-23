@@ -21,7 +21,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="{{ route('project.create') }}" class="btn btn-sm btn-primary">{{__('message.add')}}</a>
+                    <a href="{{ route('project.create') }}" class="btn btnAdd">{{__('message.add')}}</a>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     <div class="card-header">
                         <div class="d-md-flex justify-content-between">
                         <div class="form-group input-group-sm mb-0 col-md-2 d-flex  justify-content-start">
-                            <select id="projectSelect" class="form-control bg-primary" onchange="updateUrl()">
+                            <select id="projectSelect" class="form-control btnAddSelect" onchange="updateUrl()">
                                 <option value="" class="bg-light">{{__('message.selectProject')}}</option>
                                 @foreach ($projects as $project)
                                 <option class="bg-light" value="{{ $project->name }}">{{ $project->name }}</option>

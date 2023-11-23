@@ -17,11 +17,11 @@
         @endif
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>List of projects</h1>
+                <h1>{{__('message.list')}}</h1>
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="{{ route('project.create') }}" class="btn btn-sm btn-primary">Add New</a>
+                    <a href="{{ route('project.create') }}" class="btn btn-sm btn-primary">{{__('message.add')}}</a>
                 </div>
             </div>
         </div>
@@ -35,12 +35,11 @@
                     <div class="card-header col-md-12">
                         <div class="d-flex justify-content-end align-items-center  p-0">
                             <div class="form-group input-group-sm mb-0 col-md-2">
-                                <select id="projectSelect" class="form-control" onchange="updateUrl()">
-                                    
+                                <select id="projectSelect" class="form-control bg-primary" onchange="updateUrl()">
+                                        <option value="" class="bg-light">{{__('message.selectProject')}}</option>
                                         @foreach ($projects as $project)
-                                          <option value="{{ $project->name }}">{{ $project->name }}</option>
+                                          <option class="bg-light" value="{{ $project->name }}">{{ $project->name }}</option>
                                         @endforeach
-
                                 </select>
                             </div>
                             <div class="input-group input-group-sm col-md-3 p-0">

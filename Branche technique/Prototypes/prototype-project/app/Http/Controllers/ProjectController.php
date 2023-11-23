@@ -28,7 +28,7 @@ class ProjectController extends AppBaseController
                 $query->where('name', 'like', '%' . $searchProject . '%')
                       ->orWhere('description','like','%'. $searchProject . '%');
             })
-            ->paginate(1);
+            ->paginate(3);
             return view('project.search', compact('projects'))->render();
 
         }

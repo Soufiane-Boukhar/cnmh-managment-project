@@ -1,11 +1,13 @@
 <table class="table table-striped text-nowrap ">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Action</th>
+            <th>{{__('message.name')}}</th>
+            <th>{{__('message.description')}}</th>
+            <th>{{__('message.startDate')}} Date</th>
+            <th>{{__('message.endDate')}}</th>
+            @role('project-leader')
+            <th>{{__('message.action')}}</th>
+            @endrole
         </tr>
     </thead>
     <tbody>

@@ -21,7 +21,7 @@ class MemberController extends AppBaseController
     }
 
     public function index(Request $request){
-        $members = Member::where('role', 'member')->paginate(1); 
+        $members = Member::where('role', 'member')->paginate(3); 
 
         if($request->ajax()){
             $searchMember = $request->get('searchMember');
@@ -31,7 +31,7 @@ class MemberController extends AppBaseController
                 $query->where('name', 'like', '%' . $searchMember . '%')
                       ->orWhere('email','like','%'. $searchMember . '%');
             })
-            ->paginate(1);
+            ->paginate(3);
             return view('member.search', compact('members'))->render();
 
         }

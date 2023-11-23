@@ -42,12 +42,12 @@ class TaskController extends AppBaseController
                     ->orWhere('description', 'like', '%' . $searchTask . '%');
             });
 
-            $tasks = $tasksQuery->paginate(1);
+            $tasks = $tasksQuery->paginate(3);
 
             return view('task.search', compact('tasks', 'project'))->render();
         }
 
-        $tasks = $tasksQuery->paginate(1);
+        $tasks = $tasksQuery->paginate(3);
 
         return view('task.index', compact('tasks', 'project', 'projects'));
     }

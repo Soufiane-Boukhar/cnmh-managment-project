@@ -4,11 +4,11 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Tasks of {{ $project ? $project->name : '' }} </h1>
+                <h1>{{__('message.tasks')}} of {{ $project ? $project->name : '' }} </h1>
             </div>
             <div class="col-sm-6">
                 <div class="float-sm-right">
-                    <a href="{{ route('task.create', $project->id) }}" class="btn btn-sm btn-primary">Add Task</a>
+                    <a href="{{ route('task.create', $project->id) }}" class="btn btn-sm btn-primary">{{__('message.add')}}</a>
                 </div>
             </div>
         </div>

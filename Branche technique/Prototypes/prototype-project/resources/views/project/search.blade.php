@@ -5,12 +5,10 @@
     <td>{{ $project->start_date }}</td>
     <td>{{ $project->end_date }}</td>
     <td>
-        <a href="{{ route('task.index' , $project->id) }}" class="btn btn-sm btn-primary">View Tasks</a>
+        <a href="{{ route('task.index' , $project->id) }}" class="btn btn-sm btn-primary">{{__('message.view')}}</a>
     </td>
+    @role('project-leader')
     <td>
-        <a href="{{ route('project.show', $project) }}" class="btn btn-sm btn-default">
-            <i class="fas fa-eye"></i>
-        </a>
         <a href="{{ route('project.edit', $project) }}" class="btn btn-sm btn-default">
             <i class="fas fa-edit"></i>
         </a>
@@ -21,15 +19,17 @@
                     class="fas fa-trash"></i></button>
         </form>
     </td>
+    @endrole
 </tr>
 @empty
 <tr>
-    <td colspan="6">Aucun projet trouvé.
-        <a href="{{ route('project.create') }}" class="mx-1">Ajouter projet</a>
+    <td colspan="6">Projects not found.
+        <a href="{{ route('project.create') }}" class="mx-1">{{__('message.add')}} Project</a>
     </td>
 </tr>
 @endforelse
 <tr>
+    @role('project-leader')
     <td>
         <div class="d-flex justify-content-between align-items-center p-2">
             <div class="d-flex align-items-center">
@@ -38,18 +38,18 @@
                     @csrf
                     <label for="upload" class="btn btn-default btn-sm mb-0 font-weight-normal">
                         <i class="fa-solid fa-file-arrow-down"></i>
-                        Importer
+                        {{__('message.import')}}
                     </label>
                     <input type="file" id="upload" name="file" style="display:none;" onchange="submitForm()" />
                 </form>
                 <a href="{{ route('project.export') }}" class="btn  btn-default btn-sm mt-0 mx-2">
-                    <i class="fa-solid fa-file-export"></i>
-                    Exporter
+                    {{__('message.export')}}
                 </a>
             </div>
 
         </div>
     </td>
+    @endrole
     <td>
         {{$projects->links()}}
     </td>

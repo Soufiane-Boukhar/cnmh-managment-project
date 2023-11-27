@@ -1,5 +1,9 @@
 ## Create new Laravel project
 
+## Reference 
+
+- https://infyom.com/open-source
+
 ## Travail a faire 
 
 Creer une authentification de utilisateur en utillisant ui adminlte --auth 

@@ -1,7 +1,13 @@
 
 # Application Laravel CRUD BASIC
 
-Bienvenue dans l'application Laravel CRUD, une plateforme solide élaborée pour améliorer de manière efficace la gestion des stagiaires.
+## Reference
+
+- https://phppot.com/php/php-laravel-project-example/
+
+## Travail a faire
+
+L'application Laravel CRUD, une plateforme solide élaborée pour améliorer de manière efficace la gestion des stagiaires.
 
 ## Fonctionnalités
 

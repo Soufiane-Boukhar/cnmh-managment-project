@@ -1,5 +1,11 @@
 # Laravel-security-standard
 
+## Reference 
+
+- https://spatie.be/docs/laravel-permission/v6/introduction
+- https://hotexamples.com/examples/illuminate.routing/Controller/callAction/php-controller-callaction-method-examples.html
+
+
 ## Travail a faire
 
 Donner les roles et permissions pour chaque utilisateur

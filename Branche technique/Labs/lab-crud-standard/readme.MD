@@ -1,5 +1,9 @@
 ## Laravel crud standard
 
+## Reference 
+
+- https://github.com/labs-web/lab-crud-standard
+
 ### Travail a faire 
 
 L'application Laravel CRUD, une plateforme solide élaborée pour améliorer de manière efficace la gestion des projets. En utilisant design pattern repository 

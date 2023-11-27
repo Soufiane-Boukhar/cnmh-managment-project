@@ -1,5 +1,10 @@
 # lab-laravel-starter
 
+## Reference
+
+- https://laravel.com/docs/10.x/starter-kits
+- https://infyom.com/open-source/laravel-ui-adminlte/docs
+
 ## Travail a faire
 
 Creation d'une application laravel avec des packages que nous utillisons

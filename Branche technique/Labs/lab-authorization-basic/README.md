@@ -12,7 +12,7 @@ Appliquer sur lab laravel basic et doone les droit pour chaque utilisateur pour 
 ## Create new Laravel project
 
 ```bash
-composer require  create-project laravel/laravel example-app
+composer require  create-project laravel/laravel laravel-crud-basic
 ```
 ```bash
 php artisan migrate

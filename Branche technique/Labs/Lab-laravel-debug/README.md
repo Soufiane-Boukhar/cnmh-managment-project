@@ -5,7 +5,7 @@
 
 ## Travail a faire
 
-Calcule la somme de deux nombres et faire debug de fonction de la somme 
+Calcule la somme de deux nombres et faire debug de function de la somme 
 
 ## Critère de validation
 

@@ -7,8 +7,7 @@
 
 ## Travail a faire
 
-Donne les droit pour chaque utilisateur pour faire ajouter ou editer en utilisant function callAction avec gate
-
+Appliquer sur lab laravel basic et doone les droit pour chaque utilisateur pour faire ajouter ou editer en utilisant function callAction avec gate.
 
 ## Create new Laravel project
 

@@ -1,25 +1,17 @@
 {
     "version": "0.2.0",
-    "compounds": [
+    "configurations": [
         {
-            "name": "Launch & Debug",
-            "configurations": [ "Launch Program", "Launch localhost" ]
-        }
-],
-"configurations": [
-    {
-        "type": "php",
-        "request": "launch",
-        "name": "Launch Program",
-        "cwd": "${workspaceRoot}",
-        "port": 9000
-    },
-    {
-        "name": "Launch localhost",
-            "type": "edge",
+            "name": "Listen for Xdebug",
+            "type": "php",
             "request": "launch",
-            "url": "http://127.0.0.1:8000/public",
-            "webRoot": "${workspaceRoot}"
+            "port": 9000,
+            "log": true,
+            "externalConsole": false,
+            "pathMappings": {
+                "C:\\Solicoders\\cnmh-managment-project\\Branche technique\\Labs\\Lab-laravel-debug": "${workspaceFolder}"
+            }
+            
         }
     ]
 }

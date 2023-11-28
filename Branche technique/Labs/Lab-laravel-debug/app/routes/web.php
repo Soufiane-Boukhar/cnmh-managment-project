@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
+    
     $name = 'soufiane';
     return view('welcome');
 });

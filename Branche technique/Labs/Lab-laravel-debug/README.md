@@ -5,7 +5,13 @@
 
 ## Travail a faire
 
-Debbug une variable en utilise xdebug en laravel
+Calcule la somme de deux nombres et faire debug de fonction de la somme 
+
+## Critère de validation
+
+- Installation xdebug
+- Utilisation vscode
+- Créer un controller CalculeController et appliquer la logique de calcule
 
 ## Installation
 
@@ -72,5 +78,18 @@ xdebug.start_with_request = yes
         }
     ]
 }
+```
+## Commande
+
+```bash
+composer create-project laravel/laravel calcule
+```
+
+```bash
+php artisan make:controller CalculeController
+```
+
+```bash
+php artisan serve
 ```
 

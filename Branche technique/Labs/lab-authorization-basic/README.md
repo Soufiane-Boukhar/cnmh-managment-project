@@ -7,7 +7,14 @@
 
 ## Travail a faire
 
-Appliquer sur lab laravel basic et doone les droit pour chaque utilisateur pour faire ajouter ou editer en utilisant function callAction avec gate.
+Appliquer sur lab laravel basic et doone les droit pour chaque utilisateur pour faire ajouter ou editer.
+
+## Critéres de validation
+
+- Intégrer l'authentification via Laravel Auth.
+- Appliquer la fonction callAction.
+- Utiliser Gate pour les autorisations.
+- Éviter l'utilisation des policies
 
 ## Create new Laravel project
 
@@ -16,9 +23,6 @@ composer require  create-project laravel/laravel laravel-crud-basic
 ```
 ```bash
 php artisan migrate
-```
-```bash
-php artisan make:policy ProjetPolicy --model=Project
 ```
 ```bash
 php artisan serve

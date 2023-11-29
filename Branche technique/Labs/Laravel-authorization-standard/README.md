@@ -10,6 +10,12 @@
 
 Donner les roles et permissions pour chaque utilisateur
 
+## Critères de validation
+
+- Attribution d'un rôle et de permissions à chaque utilisateur.
+- Utiliser package spatie laravel permission
+- Utiliser un seeder pour ajouter les rôles et les permissions
+
 ## Packages
 
 - ui adminlte authentification

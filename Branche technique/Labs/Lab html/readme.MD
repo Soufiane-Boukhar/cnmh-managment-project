@@ -2,13 +2,14 @@
 
 ## Reference
 
-- https://codedamn.com/news/frontend/how-to-scroll-to-anchor-smoothly
+- [Js-Craft](https://www.js-craft.io/blog/create-links-and-scroll-to-any-text-fragment-in-an-html-page-without-adding-unique-ids/)
+- [MICHAEL GEARON](https://mgearon.com/html/text-fragments/)
 
 ## Travail a faire 
 
-Ce projet vise à améliorer l'expérience utilisateur d'une page web en ajoutant une fonctionnalité de défilement fluide vers des sections spécifiques. La page est structurée en différentes sections, chaque section ayant un contenu distinct.
+Créez des liens et faites défiler jusqu'à n'importe quel fragment de texte dans une page HTML sans ajouter d'identifiants uniques
 
-## Critères de validation
+## Critère do validation
 
-- Utiliser des liens href
-- Utiliser deux sections pour faire scroll 
+- Vous devez utiliser :~:text=:
+

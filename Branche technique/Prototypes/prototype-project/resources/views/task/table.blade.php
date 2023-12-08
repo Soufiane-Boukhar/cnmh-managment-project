@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>{{__('message.name')}}</th>
-            <th>{{__('message.description')}}</th>
+            <th>{{__('message.project')}}</th>
             <th>{{__('message.startDate')}} Date</th>
             <th>{{__('message.endDate')}}</th>
             @role('project-leader')

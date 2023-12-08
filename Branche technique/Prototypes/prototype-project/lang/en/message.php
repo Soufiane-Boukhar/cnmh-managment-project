@@ -15,6 +15,7 @@ return [
 
     'name' => 'Name',
     'description' => 'Description',
+    'project' => 'Project',
     'startDate' => 'Start Date',
     'endDate' => 'End Date',
 

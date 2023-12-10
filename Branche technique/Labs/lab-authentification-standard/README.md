@@ -6,27 +6,27 @@
 
 ## Travail a faire 
 
-Creer une authentification de utilisateur en utillisant ui adminlte --auth 
+Créer une authentification de utilisateur
+
+## Critères de validation
+
+- Utiliser adminlte ui auth
+
 
 ## Commandes
 
 ```bash
-composer create-project --prefer-dist laravel/laravel:^9.0 project-manager
+composer create-project laravel/laravel laravel 
 ```
 
-> Add following packages into composer.json while using it with Laravel 9.
 ```json
  "require": {
-     "infyomlabs/laravel-generator": "^5.0",
      "infyomlabs/adminlte-templates": "^5.0",
      "doctrine/dbal": "~2.3"
  }  
  ```
 > composer update
 
-```bash
-php artisan vendor:publish --provider="InfyOm\Generator\InfyOmGeneratorServiceProvider"
-```
  
 ```bash
 php artisan infyom:publish --localized
@@ -40,18 +40,8 @@ composer require infyomlabs/laravel-ui-adminlte
 php artisan ui adminlte --auth
 ```
 
-```bash
-npm install && npm install laravel-mix --save-dev && npm run dev
-```
-
-```bash
-php artisan make:migration create_projects_table
-```
 
 ```bash
 php artisan migrate
 ```
 
-```bash
-php artisan infyom:scaffold Project --fromTable --table=projects
-```

@@ -71,34 +71,34 @@ class TaskController extends AppBaseController
     }
     
 
-    public function edit($id){
-        $task = $this->TaskRepository->find($id);
-        $project = $this->ProjectRepository->find($id);
+    public function edit($id, $task_id){
 
+        $task = $this->TaskRepository->find($task_id);
+
+        $project = $this->ProjectRepository->find($id);
 
         return view('task.edit',compact('task','project'));
 
     }
 
-    public function update(Request $request,$id){
+    public function update(Request $request, $id, $task_id){
         $data = $request->all();
-        $tasks = $this->TaskRepository->update($data,$id);
-
+        $task = $this->TaskRepository->update($data, $task_id);
         return back()->with('success','Task updated successfully.');
-
     }
-
-    public function destroy($id){
-        $result = $this->TaskRepository->destroy($id);
-
-        dd($result);
     
+
+    public function destroy($id, $task_id)
+    {
+        $result = $this->TaskRepository->destroy($task_id);
+
         if ($result) {
             return back()->with('success', 'Task has been removed successfully.');
         } else {
-            return back()->with('error', 'Failed to remove project. Please try again.');
+            return back()->with('error', 'Failed to remove task. Please try again.');
         }
     }
+
 
     public function export()
     {

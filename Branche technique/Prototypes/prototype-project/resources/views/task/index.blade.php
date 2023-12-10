@@ -30,6 +30,7 @@
                 <div class="card">
                     <div class="card-header col-md-12">
                         <div class="d-flex justify-content-between">
+
                             <div class="dropdown">
                                 <i class="fa-solid fa-filter" style="color: #000505;"></i>
                                 <button class="btn btn-sm mr-3 dropdown-toggle btnAddSelect" type="button"
@@ -39,8 +40,8 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     @foreach($projects as $project)
-                                    <a class="dropdown-item"
-                                        href="/projects/{{$project->id}}/tasks">{{$project->name}}</a>
+                                    <a class="dropdown-item project-link" href="#"
+                                        data-id="{{$project->id}}">{{$project->name}}</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -99,6 +100,25 @@ $(document).ready(function() {
 
         fetch_data(page, search, id);
     });
+
+    $('.project-link').on('click', function(e) {
+            e.preventDefault();
+
+            var projectId = $(this).data('id');
+
+            history.pushState(null, '', '/projects/' + projectId + '/tasks');
+
+            $.ajax({
+                type: 'GET',
+                url: '/projects/' + projectId + '/tasks',
+                success: function(data) {
+                    $('.tasks-container').html(data);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
 
     id = $('#id_project').val();
     fetch_data(1, '', id);

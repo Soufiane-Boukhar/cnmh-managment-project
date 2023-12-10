@@ -1,4 +1,4 @@
-<table class="table table-striped text-nowrap ">
+<table class="table table-striped text-nowrap">
     <thead>
         <tr>
             <th>{{__('message.name')}}</th>
@@ -10,7 +10,7 @@
             @endrole
         </tr>
     </thead>
-    <tbody>
+    <tbody class="tasks-container">
        @include('task.search')
     </tbody>
 </table>

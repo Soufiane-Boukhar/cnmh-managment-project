@@ -9,6 +9,10 @@
 
 Creation d'une application laravel avec des packages que nous utillisons
 
+## Critères de validation
+
+- Utiliser adminlte ui auth
+
 ## Packages
 
 - Laravel ui adminlte

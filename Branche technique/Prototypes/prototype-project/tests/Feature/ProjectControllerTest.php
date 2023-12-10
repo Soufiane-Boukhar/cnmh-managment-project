@@ -59,4 +59,17 @@ class ProjectControllerTest extends TestCase
     }
 
 
+    public function test_project_destroy(): void
+    {
+        $user = User::factory()->create();
+        $user->givePermissionTo('destroy-ProjectController');
+        $project = Project::factory()->create();
+        $this->assertTrue($user->hasPermissionTo('destroy-ProjectController'));
+        $destroyResponse = $this->actingAs($user)->delete(route('project.destroy', ['id' => $project->id]));
+        $destroyResponse->assertStatus(302);
+        $this->assertDatabaseMissing('projects', ['id' => $project->id]);
+    }
+
+
+
 }

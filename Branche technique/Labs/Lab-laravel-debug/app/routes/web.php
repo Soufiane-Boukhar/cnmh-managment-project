@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CalculeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $names = 'soufiane';
-    $name = 'soufiane';
     return view('welcome');
 });
+
+Route::get('/calcule',[CalculeController::class,'somme']);

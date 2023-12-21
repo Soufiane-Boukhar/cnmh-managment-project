@@ -40,7 +40,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     @foreach($projects as $project)
-                                    <a class="dropdown-item project-link" href="#"
+                                    <a class="dropdown-item project-link" href="{{ route('task.index',$project->id) }}"
                                         data-id="{{$project->id}}">{{$project->name}}</a>
                                     @endforeach
                                 </div>
@@ -101,26 +101,6 @@ $(document).ready(function() {
         fetch_data(page, search, id);
     });
 
-    $('.project-link').on('click', function(e) {
-            e.preventDefault();
-
-            var projectId = $(this).data('id');
-
-            history.pushState(null, '', '/projects/' + projectId + '/tasks');
-
-            $.ajax({
-                type: 'GET',
-                url: '/projects/' + projectId + '/tasks',
-                success: function(data) {
-                    $('.tasks-container').html(data);
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
-        });
-
-    id = $('#id_project').val();
     fetch_data(1, '', id);
 });
 </script>

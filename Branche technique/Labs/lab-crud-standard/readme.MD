@@ -4,6 +4,15 @@
 
 - https://github.com/labs-web/lab-crud-standard
 
+## Critères de validation
+
+- compléter le travail sur lab crud laravel basic
+- Opérations CRUD pour les projets
+- Pagination
+- Recherche (AJAX)
+- Design Pattern Repository
+- Affichage des projets
+
 ### Travail a faire 
 
 L'application Laravel CRUD, une plateforme solide élaborée pour améliorer de manière efficace la gestion des projets. En utilisant design pattern repository 
@@ -12,7 +21,7 @@ L'application Laravel CRUD, une plateforme solide élaborée pour améliorer de 
 ### Commande 
 
 ```bash
-composer create-project laravel/laravel example-app
+composer create-project laravel/laravel laravel-crud-standard
 
 ```
 
